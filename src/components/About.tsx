@@ -15,10 +15,10 @@ export function About() {
         {/* ------------------------------------------------ Portrait */}
         <Reveal className="relative">
           <div className="relative mx-auto max-w-md lg:mx-0 lg:sticky lg:top-28">
-            {/* Offset gold frame */}
+            {/* Offset gold frame — encloses the portrait and the credentials strip */}
             <span
               aria-hidden
-              className="absolute -bottom-4 -right-4 h-full w-full rounded-sm border border-[#c9a227]/35 sm:-bottom-5 sm:-right-5"
+              className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full rounded-sm border border-[#c9a227]/35 sm:-bottom-5 sm:-right-5"
             />
 
             {/*
@@ -48,7 +48,7 @@ export function About() {
             </div>
 
             {/* Credentials strip — two columns, hairline dividers */}
-            <dl className="relative mt-10 grid grid-cols-2 border-t border-[#0b1220]/[0.08]">
+            <dl className="relative mt-8 grid grid-cols-2 px-8 pb-6 sm:px-10 sm:pb-7">
               {shown.map((c, i) => (
                 <div
                   key={c.label}
@@ -56,10 +56,6 @@ export function About() {
                     "py-5",
                     // Gutter, plus a rule down the middle for the right column
                     i % 2 === 0 ? "pr-6" : "border-l border-[#0b1220]/[0.08] pl-6",
-                    // Rule under every row except the last one
-                    Math.floor(i / 2) < Math.floor((shown.length - 1) / 2)
-                      ? "border-b border-[#0b1220]/[0.08]"
-                      : "",
                   ].join(" ")}
                 >
                   <dt className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-[#64748b]">

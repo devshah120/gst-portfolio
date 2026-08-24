@@ -44,11 +44,11 @@ export function Hero() {
         {/* ------------------------------------------------------- Left */}
         <div className="max-w-2xl">
           <motion.span {...fade(0.05)} className="eyebrow text-[#c9a227]">
-            GST • TAX • COMPLIANCE
+            GST • Income Tax • Digital Signature
           </motion.span>
 
           <h1 className="mt-7 font-serif text-[2.5rem] leading-[1.08] text-white sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.75rem]">
-            <TextReveal text={"GST & Tax Compliance,"} delay={0.15} />
+            <TextReveal text={"GST & Income Tax Compliance,"} delay={0.15} />
             <span className="block overflow-hidden pb-[0.08em]">
               <motion.span
                 className="block"
@@ -56,7 +56,7 @@ export function Hero() {
                 animate={{ y: 0 }}
                 transition={{
                   duration: reduce ? 0 : 0.85,
-                  delay: reduce ? 0 : 0.26,
+                  delay: reduce ? 0 : 0.37,
                   ease: EASE,
                 }}
               >

@@ -11,7 +11,7 @@ export const site = {
   name: "Yash Shah",
   role: "GST Consultant & Tax Advisor",
   shortRole: "GST Consultant",
-  tagline: "GST & Tax Compliance, Handled With Precision.",
+  tagline: "GST, Income Tax & Digital Signature, Handled With Precision.",
 
   /** Used for canonical URLs, sitemap, Open Graph. */
   url: "https://yashshah.example.com", // TODO: REPLACE with the live domain

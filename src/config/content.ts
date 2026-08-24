@@ -434,7 +434,7 @@ export const credentials: { label: string; value: string }[] = [
   { label: "Qualification", value: "B.Com, M.Com" },
   { label: "Legal", value: "LLB" },
   { label: "Based In", value: "Narol, Ahmedabad" },
-  { label: "Practising Since", value: "" }, // TODO: REPLACE with the year, e.g. "2016"
+  { label: "Years Practising", value: "5+" },
 ];
 
 /** TODO: REPLACE — short highlights shown in the About section. */
@@ -460,23 +460,26 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Professional, responsive and extremely clear throughout the entire process.",
-    author: "Client Name", // TODO: REPLACE
-    role: "Business, City", // TODO: REPLACE
+      "Yash made our GST compliance much easier. From registration and return filing to resolving our queries, everything was handled professionally and on time. Highly recommended for businesses looking for reliable GST support.",
+    // TODO: name withheld pending written consent — restore once cleared.
+    author: "Business Owner",
+    role: "Ahmedabad",
     rating: 5,
   },
   {
     quote:
-      "Placeholder testimonial. Replace this with a genuine client comment about the engagement.",
-    author: "Client Name", // TODO: REPLACE
-    role: "Business, City", // TODO: REPLACE
+      "The income tax filing process was smooth and straightforward. Yash explained everything clearly, helped me understand the tax implications, and ensured my return was filed correctly and on time.",
+    // TODO: name withheld pending written consent — restore once cleared.
+    author: "Business Owner",
+    role: "Ahmedabad",
     rating: 5,
   },
   {
     quote:
-      "Placeholder testimonial. Replace this with a genuine client comment about the engagement.",
-    author: "Client Name", // TODO: REPLACE
-    role: "Business, City", // TODO: REPLACE
+      "Getting our Digital Signature Certificate was quick and hassle-free. Yash guided me through the entire process and helped me get the required documents sorted without any confusion.",
+    // TODO: name withheld pending written consent — restore once cleared.
+    author: "Director",
+    role: "Ahmedabad",
     rating: 5,
   },
 ];
