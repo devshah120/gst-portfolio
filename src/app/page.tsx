@@ -1,6 +1,7 @@
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { CTA } from "@/components/CTA";
+import { Doorstep } from "@/components/Doorstep";
 import { FAQ } from "@/components/FAQ";
 import { FeaturedService } from "@/components/FeaturedService";
 import { Hero } from "@/components/Hero";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <FeaturedService />
       <Industries />
       <WhyChooseUs />
+      <Doorstep />
       <Process />
       <Testimonials />
       <FAQ />

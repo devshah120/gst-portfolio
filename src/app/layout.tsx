@@ -23,7 +23,7 @@ const inter = Inter({
 
 const title = `${site.name} | ${site.role}`;
 const description =
-  "Professional GST, taxation and compliance services for businesses, startups and professionals.";
+  "Accounting and tax solutions for individuals, professionals and businesses — GST registration and return filing, income tax and TDS returns, book keeping and digital signature services.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -43,7 +43,12 @@ export const metadata: Metadata = {
     "GST advisory",
     "GST audit",
     "tax planning",
-    "business registration",
+    "income tax return filing",
+    "ITR filing",
+    "TDS return filing",
+    "accounting and book keeping",
+    "digital signature certificate",
+    "DSC",
     "compliance services",
   ],
   alternates: { canonical: "/" },

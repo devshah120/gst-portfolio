@@ -14,15 +14,12 @@ import {
   ClipboardList,
   Cpu,
   FileCheck2,
-  FileSpreadsheet,
-  Gavel,
   Handshake,
-  Landmark,
-  LineChart,
+  KeyRound,
   MessagesSquare,
+  Receipt,
   Rocket,
   ScrollText,
-  ShieldCheck,
   ShoppingCart,
   Store,
   Truck,
@@ -86,79 +83,31 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "gst-registration",
-    title: "GST Registration",
+    slug: "gst-work",
+    title: "GST Work",
     short:
-      "New registrations, amendments and multi-state additions, prepared correctly the first time.",
+      "Registration, GSTR-1, 3B, 9 and 9C filing, LUT and refund, HSN codes and GST advisory.",
     icon: FileCheck2,
-    overview:
-      "Registration decides how your business is treated under GST for years afterwards — the constitution you declare, the places of business you list, the HSN and SAC codes you select and the composition choice you make all carry forward. I handle the application end to end, from document preparation to responding to departmental queries, so the registration you receive matches how your business actually operates.",
-    audience: [
-      "Businesses crossing the turnover threshold for the first time",
-      "E-commerce sellers who require registration regardless of turnover",
-      "Businesses adding a branch, godown or new state of operation",
-      "Firms needing amendments after a change in address, partners or activity",
-      "Voluntary registrations taken to claim input tax credit",
-    ],
-    included: [
-      "Assessment of whether registration is required and under which category",
-      "Document checklist prepared for your specific constitution",
-      "Application filing on the GST portal with correct HSN/SAC classification",
-      "Response to clarifications raised by the officer",
-      "Guidance on composition scheme suitability where applicable",
-      "Post-registration walkthrough of your compliance calendar",
-    ],
-    benefits: [
-      {
-        title: "Correct from the start",
-        body: "Classification and place-of-business details entered accurately, so amendments are not needed later.",
-      },
-      {
-        title: "Queries handled",
-        body: "Departmental clarifications are drafted and filed within the response window.",
-      },
-      {
-        title: "You know what follows",
-        body: "You leave with a clear picture of which returns apply to you and when they are due.",
-      },
-    ],
-    faq: [
-      {
-        q: "How long does GST registration take?",
-        a: "Once complete documents are available, the application is filed promptly. Departmental processing time varies, and a physical verification or clarification request can extend it. You are kept informed at each stage.",
-      },
-      {
-        q: "Do I need separate registration for each state?",
-        a: "GST registration is state-specific. If you have a place of business in more than one state, a separate registration is generally required for each. I assess your structure and advise accordingly.",
-      },
-      {
-        q: "Should I opt for the composition scheme?",
-        a: "It depends on your turnover, customer profile and whether your buyers need input tax credit. I compare both options against your numbers before you decide.",
-      },
-    ],
-  },
-  {
-    slug: "gst-return-filing",
-    title: "GST Return Filing",
-    short:
-      "Monthly, quarterly and annual returns filed on time, with reconciliation done before submission.",
-    icon: FileSpreadsheet,
     featured: true,
     overview:
-      "Filing is not the difficult part — reconciliation is. Mismatches between your books, your GSTR-2B and your suppliers' filings are what create notices months later. Every return I file is preceded by a reconciliation, so credit claimed is credit that will hold, and differences are raised with suppliers while they can still be corrected.",
+      "The whole GST cycle handled as one engagement — registration, monthly and annual filing, refunds, and the notices that follow when something does not match. Filing is not the difficult part; reconciliation is. Every return is preceded by a GSTR-2B reconciliation, so credit claimed is credit that will hold, and differences are raised with suppliers while they can still be corrected.",
     audience: [
-      "Regular taxpayers filing GSTR-1 and GSTR-3B",
+      "Businesses crossing the turnover threshold for the first time",
+      "Regular taxpayers filing GSTR-1 and GSTR-3B each month",
       "QRMP taxpayers on the quarterly cycle",
-      "Composition dealers filing CMP-08 and GSTR-4",
+      "Exporters and SEZ suppliers claiming refunds under LUT",
       "Businesses that have fallen behind and need filings brought current",
+      "Anyone who has received a notice, or faces suspension or cancellation",
     ],
     included: [
-      "GSTR-1 and GSTR-3B preparation and filing",
-      "GSTR-2B reconciliation against purchase records before credit is claimed",
-      "Supplier follow-up list for invoices missing from your 2B",
+      "GST registration, amendments and multi-state additions",
+      "GSTR-1 and GSTR-3B preparation and filing each cycle",
       "Annual return GSTR-9 and reconciliation statement GSTR-9C where applicable",
-      "Deadline tracking with reminders ahead of each due date",
-      "Ledger review covering cash, credit and liability balances",
+      "GSTR-2B reconciliation against purchases before credit is claimed",
+      "LUT filing for exporters and refund claim preparation",
+      "HSN/SAC classification, rate and place-of-supply advisory",
+      "Notice replies, departmental representation and appeal drafting",
+      "Deadline tracking with reminders ahead of every due date",
     ],
     benefits: [
       {
@@ -170,8 +119,8 @@ export const services: Service[] = [
         body: "Due dates are tracked centrally, so interest and late fees are avoided.",
       },
       {
-        title: "Differences caught early",
-        body: "Mismatches are raised in the same month rather than surfacing in an annual reconciliation.",
+        title: "Notices handled properly",
+        body: "Replies are drafted with supporting records and filed inside the response window.",
       },
     ],
     faq: [
@@ -183,131 +132,10 @@ export const services: Service[] = [
         q: "Can you take over filings that are already overdue?",
         a: "Yes. Pending periods are filed in sequence, with late fee and interest exposure calculated up front so there are no surprises.",
       },
-    ],
-  },
-  {
-    slug: "gst-advisory",
-    title: "GST Advisory",
-    short:
-      "Clear positions on classification, place of supply, credit eligibility and transaction structuring.",
-    icon: MessagesSquare,
-    overview:
-      "Most GST disputes trace back to a decision made without advice: a rate applied by assumption, an export treated as a local supply, credit claimed on a blocked item. Advisory work is about resolving those questions before they are filed, and documenting the reasoning so the position can be defended if it is ever examined.",
-    audience: [
-      "Businesses launching a new product line or service",
-      "Exporters and suppliers to SEZ units",
-      "Businesses with inter-state, branch or stock transfer movements",
-      "Anyone uncertain about rate, classification or credit eligibility",
-    ],
-    included: [
-      "Rate and HSN/SAC classification opinions",
-      "Place of supply determination for inter-state and export transactions",
-      "Input tax credit eligibility review, including blocked credit analysis",
-      "Reverse charge applicability assessment",
-      "Transaction and contract structuring from a GST standpoint",
-      "Written summary of the position taken and the basis for it",
-    ],
-    benefits: [
       {
-        title: "Decisions on record",
-        body: "Each position is documented with its reasoning, so it can be explained years later.",
+        q: "Do I need separate registration for each state?",
+        a: "GST registration is state-specific. If you have a place of business in more than one state, a separate registration is generally required for each. I assess your structure and advise accordingly.",
       },
-      {
-        title: "Answered in plain language",
-        body: "You get a usable conclusion, not a wall of section references.",
-      },
-      {
-        title: "Fewer disputes downstream",
-        body: "Getting classification right at the outset removes the most common cause of notices.",
-      },
-    ],
-    faq: [
-      {
-        q: "Can I ask a one-off question without an ongoing engagement?",
-        a: "Yes. Standalone advisory on a specific transaction or classification question is available.",
-      },
-    ],
-  },
-  {
-    slug: "gst-audit",
-    title: "GST Audit & Reconciliation",
-    short:
-      "Books reconciled against returns and 2B, with gaps identified before the department finds them.",
-    icon: ShieldCheck,
-    overview:
-      "An audit review works backwards from your filings to your books and forward from your books to your filings, and reports every difference between them. The point is to find issues while they can still be corrected voluntarily, rather than discovering them in a departmental audit when the options are narrower.",
-    audience: [
-      "Businesses crossing the turnover limit for GSTR-9C",
-      "Businesses selected for departmental audit",
-      "Anyone taking over books from a previous consultant",
-      "Businesses preparing for due diligence, funding or a sale",
-    ],
-    included: [
-      "Turnover reconciliation between books, GSTR-1, GSTR-3B and financials",
-      "Input tax credit reconciliation against GSTR-2B for the period",
-      "Review of reverse charge and blocked credit treatment",
-      "Identification of short payments, excess credit and classification errors",
-      "Findings report with the correction route for each item",
-      "Assistance with voluntary payment through DRC-03 where required",
-    ],
-    benefits: [
-      {
-        title: "Exposure quantified",
-        body: "You see the size of every gap and what it would cost to correct it.",
-      },
-      {
-        title: "Corrected on your terms",
-        body: "Voluntary correction is almost always less expensive than departmental assessment.",
-      },
-      {
-        title: "Clean records",
-        body: "Reconciled books stand up during due diligence and departmental review alike.",
-      },
-    ],
-    faq: [
-      {
-        q: "Is GSTR-9C mandatory for my business?",
-        a: "It applies above a prescribed aggregate turnover threshold, which has changed over time. I confirm applicability against your turnover for the specific financial year.",
-      },
-    ],
-  },
-  {
-    slug: "gst-notice-litigation",
-    title: "GST Notice & Litigation Support",
-    short:
-      "Notices read properly, replies drafted with evidence, and representation through the process.",
-    icon: Gavel,
-    overview:
-      "A GST notice has a deadline and a specific statutory basis, and both matter. The first step is establishing what is actually being alleged and under which section, because that determines the reply, the evidence required and the options available. From there the response is drafted, supported and filed within the window.",
-    audience: [
-      "Businesses that have received ASMT-10, DRC-01 or a show cause notice",
-      "Taxpayers facing a credit mismatch or return scrutiny query",
-      "Businesses with a registration suspension or cancellation notice",
-      "Anyone considering an appeal against an order",
-    ],
-    included: [
-      "Analysis of the notice, the section invoked and the deadline",
-      "Reconstruction of the underlying records and supporting evidence",
-      "Drafting and filing of the reply with annexures",
-      "Representation before the officer during personal hearings",
-      "Appeal drafting and filing where the order warrants it",
-      "Advice on whether to contest or pay, with the cost of each set out",
-    ],
-    benefits: [
-      {
-        title: "Deadlines protected",
-        body: "Response windows are tracked from the day the notice is received.",
-      },
-      {
-        title: "Evidence-led replies",
-        body: "Each contention is supported by records rather than assertion.",
-      },
-      {
-        title: "A realistic assessment",
-        body: "Where a position is weak, you are told so before costs are incurred.",
-      },
-    ],
-    faq: [
       {
         q: "I have received a notice with a short deadline. Can you help?",
         a: "Reach out immediately with the notice. Deadlines under GST are strict and an early start materially improves the response.",
@@ -315,42 +143,54 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "tax-planning",
-    title: "Tax Planning & Advisory",
+    slug: "income-tax-return-filing",
+    title: "Income Tax Return Filing",
     short:
-      "Structure, timing and compliance planned together so tax outcomes are decided, not discovered.",
-    icon: LineChart,
+      "ITR for individuals, HUF, firms and companies, with TDS returns and tax planning alongside.",
+    icon: Receipt,
     overview:
-      "Tax planning is a scheduling and structuring exercise carried out before transactions happen. It covers how the business is constituted, how income is drawn, when capital purchases are made and how advance tax is spread across the year — all within what the law permits, and documented accordingly.",
+      "The right ITR form, the right regime and the right disclosures are what keep a return from turning into a notice. Every filing starts by matching your books against Form 26AS and the Annual Information Statement, so income reported to the department and income declared in your return agree before anything is submitted — and TDS returns are handled on the same cycle rather than as a separate scramble.",
     audience: [
-      "Business owners planning drawings and remuneration",
-      "Firms weighing proprietorship, partnership, LLP or company structure",
-      "Businesses planning capital expenditure or asset sales",
-      "Professionals managing advance tax across the year",
+      "Salaried individuals and professionals filing personal returns",
+      "HUFs and family arrangements with multiple income sources",
+      "Partnership firms and LLPs filing business returns",
+      "Private limited companies with audit and reporting obligations",
+      "Deductors required to file quarterly TDS returns",
+      "Business owners planning drawings, remuneration and advance tax",
     ],
     included: [
-      "Review of business structure and its tax consequences",
+      "ITR filing for individuals, HUF, firms and companies",
+      "Form 26AS and AIS reconciliation before the return is prepared",
+      "Old versus new regime comparison against your actual figures",
+      "Capital gains, house property and other income computation",
+      "TDS return filing (24Q, 26Q) with challan and PAN validation",
+      "Form 16 and 16A issuance, and response to intimation notices",
       "Advance tax computation and instalment scheduling",
-      "Capital expenditure and depreciation timing analysis",
-      "Deduction and exemption review against your actual position",
-      "Income tax return preparation and filing",
-      "TDS applicability review and return filing",
+      "Tax planning and consultation ahead of the year closing",
     ],
     benefits: [
       {
+        title: "Matched before filing",
+        body: "Your return agrees with 26AS and AIS, which is where most mismatch notices begin.",
+      },
+      {
+        title: "The regime that suits you",
+        body: "Old and new regime are compared on your numbers rather than assumed.",
+      },
+      {
         title: "Planned, not reactive",
-        body: "Decisions are made before the year closes, when they can still change the outcome.",
-      },
-      {
-        title: "Cash flow visibility",
-        body: "You know what is payable and when, well ahead of each due date.",
-      },
-      {
-        title: "Defensible positions",
-        body: "Every position taken is one that can be supported on examination.",
+        body: "Advance tax and deductions are decided early in the year, while they can still change the outcome.",
       },
     ],
     faq: [
+      {
+        q: "Which ITR form applies to me?",
+        a: "It depends on your income sources, whether you have business income, and your constitution. I confirm the correct form against your actual position rather than defaulting to the simplest one.",
+      },
+      {
+        q: "Can you file a return for an earlier year I missed?",
+        a: "Belated and updated returns are possible within the windows the law allows. Share the year in question and I will confirm what route is still open and what it involves.",
+      },
       {
         q: "When is the right time to start tax planning?",
         a: "Early in the financial year. Planning in March limits the options to whatever has not already happened.",
@@ -358,53 +198,10 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "business-registration",
-    title: "Business Registration",
+    slug: "accounting-book-keeping",
+    title: "Account & Book Keeping",
     short:
-      "Company, LLP, partnership and proprietorship setup, plus the registrations that follow.",
-    icon: Landmark,
-    overview:
-      "Choosing a structure is the first tax decision a business makes, and it affects rates, compliance load, liability and how easily funding can be raised later. I work through the trade-offs against your actual plans, then handle incorporation and the registrations that follow it.",
-    audience: [
-      "Founders incorporating a company or LLP",
-      "Proprietors formalising an existing business",
-      "Partners converting a firm into an LLP or company",
-      "Businesses needing MSME, IEC or professional tax registration",
-    ],
-    included: [
-      "Structure comparison across tax, compliance and liability",
-      "Name reservation and incorporation filing",
-      "PAN, TAN and GST registration",
-      "MSME/Udyam, IEC and professional tax registration as required",
-      "Drafting of partnership deed or LLP agreement",
-      "Post-incorporation compliance calendar",
-    ],
-    benefits: [
-      {
-        title: "The right structure",
-        body: "Chosen against your plans, not defaulted to whatever is quickest to register.",
-      },
-      {
-        title: "One coordinated process",
-        body: "Incorporation and the registrations that follow are handled together.",
-      },
-      {
-        title: "Compliant from day one",
-        body: "You start with the filing calendar already mapped out.",
-      },
-    ],
-    faq: [
-      {
-        q: "Private limited or LLP?",
-        a: "It depends on whether you plan to raise external funding, how many owners there are and what compliance load you are willing to carry. I set the differences out against your specific plans.",
-      },
-    ],
-  },
-  {
-    slug: "accounting-compliance",
-    title: "Accounting & Compliance",
-    short:
-      "Books maintained to a standard that makes every filing and audit straightforward.",
+      "Book keeping, P&L and balance sheet, bank reconciliation and MIS reporting, maintained monthly.",
     icon: ClipboardList,
     overview:
       "Compliance is only as reliable as the books behind it. Accounting maintained with GST treatment applied at entry — rather than reconstructed at filing time — means returns are prepared from records that already agree, and audits stop being an annual scramble.",
@@ -415,10 +212,10 @@ export const services: Service[] = [
       "Businesses preparing for audit, funding or due diligence",
     ],
     included: [
-      "Monthly bookkeeping with GST treatment applied at entry",
+      "Monthly book keeping with GST treatment applied at entry",
+      "Profit & loss statement and balance sheet preparation",
       "Bank, vendor and customer reconciliation",
-      "Monthly management reporting with commentary",
-      "TDS computation, payment and return filing",
+      "MIS and financial reporting with monthly commentary",
       "Payroll processing and statutory deductions",
       "Year-end financial statement preparation and audit coordination",
     ],
@@ -440,6 +237,58 @@ export const services: Service[] = [
       {
         q: "Can you work with my existing accounting software?",
         a: "Yes. Common accounting packages are all workable, and if you have no system in place I will recommend one that suits your volume.",
+      },
+    ],
+  },
+  {
+    slug: "digital-signature",
+    title: "Digital Signature Work",
+    short:
+      "DSC for individuals, directors, firms and companies — a fast and hassle free service.",
+    icon: KeyRound,
+    overview:
+      "A digital signature is the one thing that blocks every other filing when it expires: returns, ROC forms, tenders and e-way bills all stop until it is renewed. I handle issuance and renewal end to end — application, video verification, token configuration and installation — so the certificate is working on your machine rather than sitting in an inbox as a download link you cannot use.",
+    audience: [
+      "Individuals filing income tax returns requiring a signature",
+      "Company directors signing ROC and MCA filings",
+      "Partnership firms, LLPs and companies filing statutory returns",
+      "Businesses bidding on government e-tenders",
+      "Anyone whose existing certificate has expired or is close to expiry",
+    ],
+    included: [
+      "DSC for individuals",
+      "DSC for directors and authorised signatories",
+      "DSC for firms and companies, including DIN-linked certificates",
+      "Signing and encryption certificates for e-tender participation",
+      "USB token supply, driver installation and configuration",
+      "Renewal tracking before expiry, and revocation where required",
+    ],
+    benefits: [
+      {
+        title: "Fast and hassle free",
+        body: "Paperless issuance with video verification, so the certificate is usually ready the same day.",
+      },
+      {
+        title: "Installed and working",
+        body: "The token is configured on your system and tested against the portal you actually file on.",
+      },
+      {
+        title: "Renewed before it lapses",
+        body: "Expiry is tracked, so a dead certificate never holds up a filing deadline.",
+      },
+    ],
+    faq: [
+      {
+        q: "Which class of DSC do I need?",
+        a: "Class 3 is the current standard for income tax, MCA, GST and e-tender filings. Whether you need a signing certificate alone or signing plus encryption depends on whether you bid on tenders.",
+      },
+      {
+        q: "How long does a DSC take to issue?",
+        a: "With paperless video verification, issuance is often completed the same day once documents and the verification step are done. Organisational certificates take slightly longer as entity documents are checked.",
+      },
+      {
+        q: "How long is a DSC valid?",
+        a: "Certificates are typically issued for one, two or three years. I track the expiry date and start renewal before it lapses so your filings are never interrupted.",
       },
     ],
   },
@@ -505,6 +354,17 @@ export const industries: Industry[] = [
   },
 ];
 
+/* ---------------------------------------------------------------- doorstep */
+export const doorstep = {
+  title: "Door Step Service",
+  body: "We come to you, so you can focus on your business. Document collection, signatures and verification handled at your premises.",
+  points: [
+    "Documents collected from your office or home",
+    "Digital signature verification completed on site",
+    "No travel or waiting at our end for routine handovers",
+  ],
+};
+
 /* ------------------------------------------------------------------ pillars */
 export type Pillar = {
   title: string;
@@ -564,17 +424,22 @@ export const process = [
 ];
 
 /* -------------------------------------------------------------- credentials */
-/** TODO: REPLACE — do not publish qualifications that cannot be verified. */
+/**
+ * Shown as a 2-column strip under the About portrait.
+ * An empty `value` hides that entry entirely, so unfilled details never
+ * reach the page as visible placeholder text. Keep the count even (2 or 4)
+ * so the grid stays balanced.
+ */
 export const credentials: { label: string; value: string }[] = [
-  { label: "Qualification", value: "Add qualification" },
-  { label: "Registration No.", value: "Add registration number" },
-  { label: "Practising Since", value: "Add year" },
-  { label: "Based In", value: "Add city" },
+  { label: "Qualification", value: "B.Com, M.Com" },
+  { label: "Legal", value: "LLB" },
+  { label: "Based In", value: "Narol, Ahmedabad" },
+  { label: "Practising Since", value: "" }, // TODO: REPLACE with the year, e.g. "2016"
 ];
 
 /** TODO: REPLACE — short highlights shown in the About section. */
 export const highlights: string[] = [
-  "GST registration, filing, advisory and audit handled under one engagement",
+  "GST, income tax, accounting and DSC work handled under one engagement",
   "A direct point of contact — no handovers between account managers",
   "Notices and departmental correspondence answered within the deadline",
   "Compliance calendars maintained so filings never run late",
@@ -620,7 +485,7 @@ export const testimonials: Testimonial[] = [
 export const faqs = [
   {
     q: "What GST services do you provide?",
-    a: "Registration, monthly and annual return filing, input credit reconciliation, advisory on classification and place of supply, audit and reconciliation work, and representation on notices and litigation. Direct tax, business registration and accounting are handled alongside where required.",
+    a: "Registration, monthly and annual return filing (GSTR-1, 3B, 9 and 9C), input credit reconciliation, LUT and refund work, HSN code and rate advisory, and representation on notices and litigation. Income tax and TDS return filing, accounting and book keeping, and digital signature work are handled alongside under the same engagement.",
   },
   {
     q: "Who should register for GST?",
@@ -643,6 +508,18 @@ export const faqs = [
     a: "Yes, and a significant part of the practice is exactly that. Early-stage engagements usually begin with structure selection and registration, then move into a routine filing rhythm as operations start.",
   },
   {
+    q: "Do you handle income tax and TDS returns as well as GST?",
+    a: "Yes. Income tax returns for individuals, HUF, firms and companies are filed alongside GST work, with Form 26AS and AIS reconciled before submission. Quarterly TDS returns are filed on the same cycle, and Form 16/16A issuance is included.",
+  },
+  {
+    q: "Can you arrange a digital signature certificate?",
+    a: "Yes. Class 3 DSC is issued for individuals, directors, partners, firms and companies, including signing and encryption certificates for e-tenders. The USB token is configured and tested on your system, and renewal is tracked before the certificate expires.",
+  },
+  {
+    q: "Do you offer doorstep service?",
+    a: "Yes. For document collection, signatures and verification steps, I can come to your premises so the work does not interrupt your day. Routine communication continues over WhatsApp, email and phone.",
+  },
+  {
     q: "How can I book a consultation?",
     a: "Use the enquiry form on this site, send a WhatsApp message, or call directly. Share a short note on your business and what you need help with, and the first conversation covers what applies to you and how the engagement would work.",
   },
@@ -654,7 +531,6 @@ export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
-  { label: "Process", href: "/#process" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

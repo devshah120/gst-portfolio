@@ -40,8 +40,8 @@ export function Footer() {
               <Image
                 src="/logo-light.png"
                 alt={`${site.name} — ${site.shortRole}`}
-                width={1372}
-                height={366}
+                width={1357}
+                height={354}
                 className="h-14 w-auto"
               />
             </Link>
@@ -176,12 +176,6 @@ export function Footer() {
             </li>
           </ul>
         </div>
-
-        <p className="pb-8 text-[0.6875rem] leading-relaxed text-white/25">
-          Information on this website is general in nature and does not constitute
-          professional advice. Please seek advice specific to your circumstances
-          before acting on it.
-        </p>
       </div>
     </footer>
   );

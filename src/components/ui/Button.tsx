@@ -59,7 +59,11 @@ export function Button(props: ButtonAsLink | ButtonAsButton) {
 
   const inner = (
     <>
-      <span className="relative">{children}</span>
+      {/* Inline row so an icon passed alongside the label sits beside it,
+          not stacked above it. */}
+      <span className="relative inline-flex items-center gap-2.5 whitespace-nowrap">
+        {children}
+      </span>
       {arrow && (
         <ArrowRight
           aria-hidden

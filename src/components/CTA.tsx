@@ -75,7 +75,7 @@ export function CTA() {
                 variant="light"
                 className="w-full sm:w-auto"
               >
-                <MessageCircle aria-hidden className="size-4" />
+                <MessageCircle aria-hidden className="size-4 shrink-0" />
                 Chat on WhatsApp
               </Button>
             </div>

@@ -47,7 +47,7 @@ export function Navbar() {
   }, []);
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href.split("#")[0]) && href !== "/#process";
+    href === "/" ? pathname === "/" : pathname.startsWith(href.split("#")[0]);
 
   return (
     <>
@@ -76,8 +76,8 @@ export function Navbar() {
             <Image
               src="/logo-light.png"
               alt={`${site.name} — ${site.shortRole}`}
-              width={1372}
-              height={366}
+              width={1357}
+              height={354}
               priority
               className={cn(
                 "hidden w-auto sm:block",
@@ -89,8 +89,8 @@ export function Navbar() {
               src="/logo-mark-light.png"
               alt=""
               aria-hidden
-              width={270}
-              height={348}
+              width={275}
+              height={351}
               priority
               className="h-10 w-auto sm:hidden"
             />
@@ -192,8 +192,8 @@ export function Navbar() {
                 <Image
                   src="/logo-light.png"
                   alt={`${site.name} — ${site.shortRole}`}
-                  width={1372}
-                  height={366}
+                  width={1357}
+                  height={354}
                   className="h-10 w-auto"
                 />
                 <button

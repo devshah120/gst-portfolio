@@ -12,7 +12,7 @@ export const professionalServiceSchema = {
   "@id": `${site.url}/#business`,
   name: `${site.name} — ${site.role}`,
   description:
-    "Professional GST, taxation and compliance services for businesses, startups and professionals.",
+    "Accounting and tax solutions for individuals, professionals and businesses — GST work, income tax and TDS return filing, accounting and book keeping, and digital signature services.",
   url: site.url,
   telephone: site.contact.phoneRaw,
   email: site.contact.email,
@@ -35,7 +35,7 @@ export const professionalServiceSchema = {
   areaServed: { "@type": "Country", name: "India" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "GST & Taxation Services",
+    name: "Accounting & Tax Solutions",
     itemListElement: services.map((s) => ({
       "@type": "Offer",
       itemOffered: {

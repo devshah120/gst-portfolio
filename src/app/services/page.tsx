@@ -12,7 +12,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "GST registration, return filing, advisory, audit, notice and litigation support, tax planning, business registration and accounting compliance.",
+    "GST registration and return filing, notice and litigation support, income tax and TDS return filing, tax planning, accounting and book keeping, and digital signature (DSC) services.",
   alternates: { canonical: "/services" },
 };
 
@@ -29,7 +29,7 @@ export default function ServicesPage() {
             <span className="text-accent">Compliance</span> Journey.
           </>
         }
-        description="Eight areas of work, handled under one engagement so registration, filing, advisory and representation stay connected rather than split across advisors."
+        description={`${services.length} areas of work — GST, income tax, accounting and digital signatures — handled under one engagement, so registration, filing and representation stay connected rather than split across advisors.`}
       >
         <Button href="/contact" size="lg" arrow>
           Book a Consultation

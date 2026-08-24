@@ -6,6 +6,9 @@ import { Reveal, Stagger, StaggerItem } from "./ui/Motion";
 import { SectionHeading } from "./ui/SectionHeading";
 
 export function About() {
+  // Unfilled credentials are omitted rather than shown as placeholders.
+  const shown = credentials.filter((c) => c.value.trim());
+
   return (
     <section id="about" className="relative bg-white py-24 sm:py-28 lg:py-36">
       <div className="mx-auto grid max-w-[1400px] gap-16 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-12 xl:gap-24">
@@ -44,14 +47,25 @@ export function About() {
               </div>
             </div>
 
-            {/* Credentials strip */}
-            <dl className="relative mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-[#0b1220]/[0.08] pt-8">
-              {credentials.map((c) => (
-                <div key={c.label}>
-                  <dt className="text-[0.625rem] font-medium tracking-[0.2em] text-[#64748b] uppercase">
+            {/* Credentials strip — two columns, hairline dividers */}
+            <dl className="relative mt-10 grid grid-cols-2 border-t border-[#0b1220]/[0.08]">
+              {shown.map((c, i) => (
+                <div
+                  key={c.label}
+                  className={[
+                    "py-5",
+                    // Gutter, plus a rule down the middle for the right column
+                    i % 2 === 0 ? "pr-6" : "border-l border-[#0b1220]/[0.08] pl-6",
+                    // Rule under every row except the last one
+                    Math.floor(i / 2) < Math.floor((shown.length - 1) / 2)
+                      ? "border-b border-[#0b1220]/[0.08]"
+                      : "",
+                  ].join(" ")}
+                >
+                  <dt className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-[#64748b]">
                     {c.label}
                   </dt>
-                  <dd className="mt-2 text-[0.9375rem] font-medium text-[#0b1220]">
+                  <dd className="mt-1.5 text-[0.9375rem] font-medium leading-snug text-[#0b1220]">
                     {c.value}
                   </dd>
                 </div>
