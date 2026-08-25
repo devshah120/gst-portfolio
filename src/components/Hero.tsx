@@ -5,7 +5,6 @@ import { CalendarCheck, FileSpreadsheet, MessageCircle, Scale } from "lucide-rea
 import { whatsappUrl } from "@/config/site";
 import { Button } from "./ui/Button";
 import { EASE, TextReveal } from "./ui/Motion";
-import { HeroVisual } from "./HeroVisual";
 
 const trustPoints = [
   { icon: FileSpreadsheet, label: "GST Compliance" },
@@ -40,11 +39,10 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0b1220]" />
       </div>
 
-      <div className="relative mx-auto grid max-w-[1400px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:px-12 xl:gap-24">
-        {/* ------------------------------------------------------- Left */}
-        <div className="max-w-2xl">
+      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+        <div className="max-w-3xl">
           <motion.span {...fade(0.05)} className="eyebrow text-[#c9a227]">
-            GST • Income Tax • Digital Signature
+            GST • Income Tax •Account & Book Keeping • Digital Signature
           </motion.span>
 
           <h1 className="mt-7 font-serif text-[2.5rem] leading-[1.08] text-white sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.75rem]">
@@ -116,11 +114,6 @@ export function Hero() {
             <MessageCircle aria-hidden className="size-4" />
             Prefer WhatsApp? Message directly
           </motion.a>
-        </div>
-
-        {/* ------------------------------------------------------ Right */}
-        <div className="relative mt-4 lg:mt-0">
-          <HeroVisual />
         </div>
       </div>
     </section>
