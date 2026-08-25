@@ -42,7 +42,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="max-w-3xl">
           <motion.span {...fade(0.05)} className="eyebrow text-[#c9a227]">
-            GST • Income Tax •Account & Book Keeping • Digital Signature
+            GST • Income Tax •Accounting  • Digital Signature
           </motion.span>
 
           <h1 className="mt-7 font-serif text-[2.5rem] leading-[1.08] text-white sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.75rem]">
