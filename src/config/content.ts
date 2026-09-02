@@ -434,7 +434,7 @@ export const credentials: { label: string; value: string }[] = [
   { label: "Qualification", value: "B.Com, M.Com" },
   { label: "Legal", value: "LLB" },
   { label: "Based In", value: "Narol, Ahmedabad" },
-  { label: "Years Practising", value: "5+" },
+  { label: "Years Practising", value: "10+" },
 ];
 
 /** TODO: REPLACE — short highlights shown in the About section. */
