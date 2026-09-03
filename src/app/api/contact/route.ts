@@ -75,7 +75,7 @@ export async function POST(request: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "Website Contact Form <onboarding@resend.dev>",
+      from: "Yash Shah GST Consultant <support@yasshshah.com>",
       to: TO_EMAIL,
       replyTo: email,
       subject: `Consultation enquiry — ${name}`,
