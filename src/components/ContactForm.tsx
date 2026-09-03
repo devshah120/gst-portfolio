@@ -2,12 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { serviceOptions } from "@/config/content";
 import { site } from "@/config/site";
 import { EASE } from "./ui/Motion";
 
-type Status = "idle" | "submitting" | "sent";
+type Status = "idle" | "submitting" | "sent" | "error";
 
 const field =
   "peer h-12 w-full rounded-lg border border-[#0b1220]/12 bg-white px-4 text-[0.9375rem] text-[#0b1220] " +
@@ -19,41 +19,45 @@ const label =
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  /**
-   * No backend is wired up yet. The submission is composed into an email
-   * addressed to the configured inbox, which works on every host without
-   * requiring a server or a third-party form service.
-   *
-   * To switch to an API route later, replace the body of this handler with
-   * a fetch() to your endpoint.
-   */
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage(null);
 
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const get = (k: string) => String(data.get(k) ?? "").trim();
 
-    const body = [
-      `Name: ${get("name")}`,
-      `Email: ${get("email")}`,
-      `Phone: ${get("phone")}`,
-      `Business: ${get("business") || "—"}`,
-      `Service required: ${get("service") || "—"}`,
-      "",
-      "Message:",
-      get("message"),
-    ].join("\n");
+    const payload = {
+      name: get("name"),
+      email: get("email"),
+      phone: get("phone"),
+      business: get("business"),
+      service: get("service"),
+      message: get("message"),
+    };
 
-    const subject = `Consultation enquiry — ${get("name")}`;
-    const href = `mailto:${site.contact.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    window.location.href = href;
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
 
-    window.setTimeout(() => setStatus("sent"), 600);
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setErrorMessage(
+        `Something went wrong sending your enquiry. Please email ${site.contact.email} directly or try again.`,
+      );
+    }
   };
 
   return (
@@ -156,18 +160,18 @@ export function ContactForm() {
         <div className="sm:col-span-2">
           <button
             type="submit"
-            disabled={status !== "idle"}
+            disabled={status === "submitting" || status === "sent"}
             className="group/btn relative inline-flex h-[3.375rem] w-full items-center justify-center gap-2.5 rounded-xl bg-[#0b1220] px-7 text-[0.9375rem] font-medium text-white transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#111827] active:scale-[0.99] disabled:pointer-events-none disabled:opacity-70 sm:w-auto"
           >
             {status === "submitting" ? (
               <>
                 <Loader2 aria-hidden className="size-4 animate-spin" />
-                Preparing…
+                Sending…
               </>
             ) : status === "sent" ? (
               <>
                 <CheckCircle2 aria-hidden className="size-4 text-[#e5c766]" />
-                Email opened
+                Enquiry sent
               </>
             ) : (
               <>
@@ -181,8 +185,8 @@ export function ContactForm() {
           </button>
 
           <p className="mt-4 text-[0.75rem] leading-relaxed text-[#64748b]">
-            Submitting opens your email client with the enquiry pre-filled.
-            Prefer something quicker? Call or send a WhatsApp message instead.
+            Submitting sends your enquiry directly to us. Prefer something
+            quicker? Call or send a WhatsApp message instead.
           </p>
         </div>
       </form>
@@ -198,8 +202,21 @@ export function ContactForm() {
             className="mt-5 flex items-start gap-2.5 rounded-lg border border-[#c9a227]/30 bg-[#c9a227]/[0.08] px-4 py-3.5 text-[0.8125rem] leading-relaxed text-[#0b1220]"
           >
             <CheckCircle2 aria-hidden className="mt-0.5 size-4 shrink-0 text-[#a8871c]" />
-            Your email client should have opened with the enquiry ready to send.
-            If nothing happened, write to {site.contact.email} directly.
+            Thanks — your enquiry has been sent. We&apos;ll get back to you
+            shortly.
+          </motion.p>
+        )}
+        {status === "error" && (
+          <motion.p
+            role="alert"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="mt-5 flex items-start gap-2.5 rounded-lg border border-red-500/30 bg-red-500/[0.08] px-4 py-3.5 text-[0.8125rem] leading-relaxed text-[#0b1220]"
+          >
+            <AlertCircle aria-hidden className="mt-0.5 size-4 shrink-0 text-red-600" />
+            {errorMessage}
           </motion.p>
         )}
       </AnimatePresence>
