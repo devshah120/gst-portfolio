@@ -95,10 +95,20 @@ Utility classes worth knowing: `.eyebrow`, `.hairline`, `.bg-grid`,
 
 ## Contact form
 
-`ContactForm.tsx` composes the enquiry into the visitor's own email client via
-`mailto:` — no backend or third-party form service required. To move to a
-server-side endpoint later, replace the body of the `onSubmit` handler with a
-`fetch()` to your API route; the markup and validation stay as they are.
+`ContactForm.tsx` posts to `/api/contact` (`src/app/api/contact/route.ts`),
+which sends the enquiry via [Resend](https://resend.com) to the address in
+`CONTACT_FORM_TO_EMAIL`. This requires the app to run as a Node server
+(`next start`) — it will not work from a static export. See
+[`deploy/README.md`](deploy/README.md) for production deployment behind nginx.
+
+Required env vars (see `.env.local`):
+
+| Var | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | API key from resend.com |
+| `CONTACT_FORM_TO_EMAIL` | Inbox that receives enquiries |
+
+The `from` address in `route.ts` must be on a domain verified in Resend.
 
 ## SEO
 
